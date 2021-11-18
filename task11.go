@@ -21,7 +21,7 @@ func MatrixElementsSum(n int) int{
 	}
 	for i:=0;i<n;i++{
 		for j:=0;j<n;j++{
-			matrix[i][j]=rand.Intn(3)
+			matrix[i][j]=rand.Intn(2)
 		}
 	}
 var PrintMatrix = func(matrix [][]int){
@@ -33,11 +33,18 @@ var PrintMatrix = func(matrix [][]int){
 		}
 	}
 	PrintMatrix(matrix)
+	sum:=0
+	for i:=0;i<n;i++{
+		for j:=0;j<n;j++{
+			if matrix[j][i]==0 {
+				break
+			}else {
+				sum += matrix[j][i]
+			}
+		}
+	}
 
-
-
-
-return 0
+return sum
 }
 
 func main() {
