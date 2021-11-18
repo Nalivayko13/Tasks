@@ -47,10 +47,46 @@ var PrintMatrix = func(matrix [][]int){
 return sum
 }
 
-func main() {
-	fmt.Println("Hello, playground")
-	fmt.Println(CheckPalindrom("aabaa"))
-	fmt.Println(CheckPalindrom("aabba"))
+func ReverselineParentheses(s string) string{
+	var Reverse = func(str string) string {
+		runes := []rune(str)
+		for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+			runes[i], runes[j] = runes[j], runes[i]
+		}
+		return string(runes)
+	}
+	var (
+		start, stop int
+		out string
+	)
 
-	fmt.Println(MatrixElementsSum(3))
+	for i:=0;i<len(s);i++{
+		for j:=0;j<len(s);j++{
+			if s[j]=='(' {
+				start=j
+				break
+			}
+		}
+		for j:=0;j<len(s);j++{
+			if s[j]==')' {
+				stop=j
+				break
+			}
+		}
+		out=s[:start]+Reverse(s[start+1:stop])+s[stop+1:]
+		//fmt.Println(start)
+		//fmt.Println(stop)
+
+	}
+	return out
+}
+
+func main() {
+	//fmt.Println(CheckPalindrom("aabaa"))
+	//fmt.Println(CheckPalindrom("aabba"))
+	//fmt.Println(MatrixElementsSum(3))
+	fmt.Println(ReverselineParentheses("foo(bar)baz"))
+	fmt.Println(ReverselineParentheses("foo(bar)baz(blim)"))
+	fmt.Println(ReverselineParentheses("foo(bar(baz))blim"))
+	fmt.Println(ReverselineParentheses("foo(bar(baz))blim"))
 }
