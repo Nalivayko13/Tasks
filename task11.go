@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 )
 
 func CheckPalindrom(s string) bool{
@@ -56,35 +57,26 @@ func ReverselineParentheses(s string) string{
 		return string(runes)
 	}
 	var (
-		start, stop int
+		start1, stop int
 		out string
 	)
 
 	for i:=0;i<len(s);i++{
-		for j:=0;j<len(s);j++{
-			if s[j]=='(' {
-				start=j
-				break
-			}
-		}
-		for j:=0;j<len(s);j++{
-			if s[j]==')' {
-				stop=j
-				break
-			}
-		}
-		out=s[:start]+Reverse(s[start+1:stop])+s[stop+1:]
-		//fmt.Println(start)
-		//fmt.Println(stop)
+		start1=strings.Index(s,"(")
+		stop=strings.Index(s,")")
+		s=s[:start1]+Reverse(s[start1+1:stop])+s[stop+1:]
+		out=s
+		if !strings.Contains(s,"("){break}
 
 	}
+
 	return out
 }
 
 func main() {
-	//fmt.Println(CheckPalindrom("aabaa"))
-	//fmt.Println(CheckPalindrom("aabba"))
-	//fmt.Println(MatrixElementsSum(3))
+	fmt.Println(CheckPalindrom("aabaa"))
+	fmt.Println(CheckPalindrom("aabba"))
+	fmt.Println(MatrixElementsSum(3))
 	fmt.Println(ReverselineParentheses("foo(bar)baz"))
 	fmt.Println(ReverselineParentheses("foo(bar)baz(blim)"))
 	fmt.Println(ReverselineParentheses("foo(bar(baz))blim"))
