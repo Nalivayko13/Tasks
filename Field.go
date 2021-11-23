@@ -30,6 +30,16 @@ func (field Field) PrintField(){
 		}
 		fmt.Println("")
 	}
+	fmt.Println("--------------------")
+}
+
+func (f *Field) CleanField(){
+	for i:=0;i<f.n;i++{
+		for j:=0;j<f.n;j++{
+			f.f[i][j]=0
+		}
+	}
+
 }
 
 
@@ -38,7 +48,6 @@ func (f *Field) SetThreePoints(p1, p2, p3 Point) {
 		//TODO add sign check
 		fmt.Println("going out of bounds!")
 	}else {
-		fmt.Println("ooomg")
 		f.f[p1.x][p1.y]=1
 		f.f[p2.x][p2.y]=1
 		f.f[p3.x][p3.y]=1
