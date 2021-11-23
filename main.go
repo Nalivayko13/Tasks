@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 const (
 	WHITE= iota
 	BLACK
@@ -14,5 +16,8 @@ const (
 type Color byte
 
 func main() {
+	field:=CreateField(5)
+	fmt.Println("hello")
+	field.PrintField()
 
 }
