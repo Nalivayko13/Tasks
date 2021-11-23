@@ -34,5 +34,13 @@ func (field Field) PrintField(){
 
 
 func (f *Field) SetThreePoints(p1, p2, p3 Point) {
-
+	if f.n<p1.x || f.n<p1.y || f.n<p2.x || f.n<p2.y || f.n<p3.x || f.n<p3.y{
+		//TODO add sign check
+		fmt.Println("going out of bounds!")
+	}else {
+		fmt.Println("ooomg")
+		f.f[p1.x][p1.y]=1
+		f.f[p2.x][p2.y]=1
+		f.f[p3.x][p3.y]=1
+	}
 }
