@@ -18,6 +18,7 @@ func CreateCircle(p Parallelogram) Circle{
 	c.center=p.center
 	c.square=p.square
 	c.CalcRadius(c.square)
+	//c.Color=Color()
 	return c
 }
 

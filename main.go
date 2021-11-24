@@ -13,7 +13,7 @@ const (
 	YELLOW
 )
 
-type Color byte
+type Color int
 
 func main() {
 	field:=CreateField(7)

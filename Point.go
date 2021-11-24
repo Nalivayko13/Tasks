@@ -9,9 +9,7 @@ func CreatePoint(x,y int, c Color) Point{
 	var p Point
 	p.x=x
 	p.y=y
-	p.Color=c
+	p.Color= Color((p.x + p.y) / 2)
 	return p
 }
-func (p *Point) SetPointColor(c Color){
-	p.Color= c
-}
+
