@@ -20,15 +20,19 @@ func main() {
 
 	p1:=CreatePoint(2,3,1)
 	p2:=CreatePoint(5,3,1)
-	p3:=CreatePoint(5,5,1)
+	p3:=CreatePoint(3,5,1)
 
 	field.SetThreePoints(p1,p2,p3)
 	field.PrintField()
 
-	newP:=Create4Point(p1,p2,p3)
-	fmt.Println(newP.x, newP.y)
-	field.f[newP.x][newP.y]=1
+	//p4:=Create4Point(p1,p2,p3, field)
+	//field.PrintField()
+	//var circle Circle
+	//circle.CalcRadius(CalcSquare(p2,p3,p4))
+	fmt.Println("======================")
+	pam:=CreateParallelogram(p1,p2,p3,field)
 	field.PrintField()
+	fmt.Println(pam.center)
 
 
 

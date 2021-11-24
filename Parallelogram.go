@@ -7,18 +7,30 @@ import (
 
 type Parallelogram struct {
 	p1, p2, p3, p4 Point
+	center Point
+	square float64
 }
-func Create4Point(a,b,c Point) Point{
+
+func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram{
+	var pam Parallelogram
+	pam.p3=p3
+	pam.p1=p1
+	pam.p2=p2
+	pam.square=CalcSquare(p1,p2,p3)
+	pam.p4=Create4Point(p1,p2,p3,f)
+	a,b := true, true
+	pam.center=FindCenter(p1,p2,&a,&b)
+	return pam
+}
+
+func Create4Point(a,b,c Point, f *Field) Point{
 	inc:=true
 	inc2:=true
 	//TODO out of bounds check
 	var d Point
 	r1:=math.Sqrt(math.Pow(float64((a.x - b.x)),2)+math.Pow(float64((a.y-b.y)),2))
-	fmt.Println(r1)
 	r2:=math.Sqrt(math.Pow(float64((b.x - c.x)),2)+math.Pow(float64((b.y-c.y)),2))
-	fmt.Println(r2)
 	r3:=math.Sqrt(math.Pow(float64((a.x - c.x)),2)+math.Pow(float64((a.y-c.y)),2))
-	fmt.Println(r3)
 	max:=math.Max(r1, math.Max(r2,r3))
 
 	if r1!=r2 && r2!=r3 && r1!=r3 {
@@ -73,13 +85,14 @@ func Create4Point(a,b,c Point) Point{
 		}
 	}
 
+
 	if inc==false{
 		d.x+=1
 	}
 	if inc2==false{
 		d.y+=1
 	}
-
+	f.f[d.x][d.y]=1
 	return d
 }
 
@@ -102,7 +115,10 @@ func FindCenter(p1, p2 Point,Inc,Inc2 *bool) (Point){
 	return center
 }
 
-func (pam Parallelogram) CalcSquare() float64{
 
-	return 0
+
+func CalcSquare(p1,p2,p3 Point) float64 {
+	S:=math.Abs(float64(p1.x*(p2.y-p3.y)-p1.y*(p2.x-p3.x)+p2.x*p3.y-p2.y*p3.x))
+	fmt.Println("square = ", S)
+	return S
 }
