@@ -18,9 +18,9 @@ type Color byte
 func main() {
 	field:=CreateField(7)
 
-	p1:=CreatePoint(2,2,1)
-	p2:=CreatePoint(2,5,1)
-	p3:=CreatePoint(4,1,1)
+	p1:=CreatePoint(2,3,1)
+	p2:=CreatePoint(5,3,1)
+	p3:=CreatePoint(5,5,1)
 
 	field.SetThreePoints(p1,p2,p3)
 	field.PrintField()
