@@ -53,3 +53,13 @@ func (f *Field) SetThreePoints(p1, p2, p3 Point) {
 		f.f[p3.x][p3.y]=1
 	}
 }
+func ChangePoint(p1,p2,p3 Point,f *Field) {
+	f.CleanField()
+	f.SetThreePoints(p1,p2,p3)
+	p:=CreateParallelogram(p1,p2,p3,f)
+	fmt.Println("P-am center is", p.center)
+	fmt.Println("P-am points: ", p.p1,p.p2,p.p3,p.p4)
+	o:=CreateCircle(p)
+	fmt.Println("Radius of circle = ",o.radius)
+}
+
