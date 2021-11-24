@@ -23,18 +23,12 @@ func main() {
 	p3:=CreatePoint(3,5,1)
 	p5:=CreatePoint(4,2,2)
 
-	field.SetThreePoints(p1,p2,p5)
+	pam:=CreateParallelogram(p1,p2,p5,field)
 	field.PrintField()
-
-	//p4:=Create4Point(p1,p2,p3, field)
-	//field.PrintField()
-	//var circle Circle
-	//circle.CalcRadius(CalcSquare(p2,p3,p4))
-	fmt.Println("======================")
-	pam:=CreateParallelogram(p1,p2,p3,field)
-	fmt.Println(pam.center)
-	fmt.Println("**********************************")
-	ChangePoint(p1,p2,p5,field)
+	fmt.Println("P-am center is", pam.center)
+	fmt.Println("P-am points: ", pam.p1,pam.p2,pam.p3,pam.p4)
+	fmt.Println("======================================")
+	ChangePoint(p1,p2,p3,field)
 	field.PrintField()
 
 

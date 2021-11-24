@@ -16,6 +16,7 @@ func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram{
 	pam.p3=p3
 	pam.p1=p1
 	pam.p2=p2
+	f.SetThreePoints(p1,p2,p3)
 	pam.square=CalcSquare(p1,p2,p3)
 	pam.p4=Create4Point(p1,p2,p3,f)
 	a,b := true, true
