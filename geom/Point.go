@@ -15,15 +15,15 @@ const (
 type Color int
 
 type Point struct {
-	x,y int
+	X, Y int
 	Color
 }
 
 func CreatePoint(x,y int) Point {
 	var p Point
-	p.x=x
-	p.y=y
-	p.Color= Color((p.x + p.y) / 2)
+	p.X =x
+	p.Y =y
+	p.Color= Color((p.X + p.Y) / 2)
 	return p
 }
 
