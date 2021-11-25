@@ -1,4 +1,4 @@
-package main
+package geom
 
 import (
 	"fmt"
@@ -13,9 +13,9 @@ type Circle struct {
 	Color
 }
 
-func CreateCircle(p Parallelogram) Circle{
+func CreateCircle(p Parallelogram) Circle {
 	var c Circle
-	c.center=p.center
+	c.center=p.Center
 	c.square=p.square
 	c.CalcRadius(c.square)
 	//c.Color=Color()

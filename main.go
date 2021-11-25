@@ -1,34 +1,25 @@
 package main
 
-import "fmt"
-
-const (
-	WHITE= iota
-	BLACK
-	PINK
-	RED
-	GREEN
-	BROWN
-	ORANGE
-	YELLOW
+import (
+	"PointersTask2/geom"
+	"fmt"
 )
 
-type Color int
 
 func main() {
-	field:=CreateField(7)
+	field:= geom.CreateField(8)
 
-	p1:=CreatePoint(2,3,1)
-	p2:=CreatePoint(5,3,1)
-	p3:=CreatePoint(3,5,1)
-	p5:=CreatePoint(4,2,2)
+	p1:= geom.CreatePoint(3,3)
+	p2:= geom.CreatePoint(4,3)
+	p3:= geom.CreatePoint(5,5)
+	p5:= geom.CreatePoint(4,2)
 
-	pam:=CreateParallelogram(p1,p2,p5,field)
+	pam:= geom.CreateParallelogram(p1,p2,p5,field)
 	field.PrintField()
-	fmt.Println("P-am center is", pam.center)
-	fmt.Println("P-am points: ", pam.p1,pam.p2,pam.p3,pam.p4)
+	fmt.Println("P-am center is", pam.Center)
+	fmt.Println("P-am points: ", pam.P1,pam.P2,pam.P3,pam.P4)
 	fmt.Println("======================================")
-	ChangePoint(p1,p2,p3,field)
+	geom.ChangePoint(p1,p2,p3,field)
 	field.PrintField()
 
 

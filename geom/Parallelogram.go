@@ -1,4 +1,4 @@
-package main
+package geom
 
 import (
 	"fmt"
@@ -6,29 +6,29 @@ import (
 )
 
 type Parallelogram struct {
-	p1, p2, p3, p4 Point
-	center Point
-	square float64
+	P1, P2, P3, P4 Point
+	Center         Point
+	square         float64
 }
 
-func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram{
+func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram {
 	var pam Parallelogram
-	pam.p3=p3
-	pam.p1=p1
-	pam.p2=p2
+	pam.P3 =p3
+	pam.P1 =p1
+	pam.P2 =p2
 	f.SetThreePoints(p1,p2,p3)
-	pam.square=CalcSquare(p1,p2,p3)
-	pam.p4=Create4Point(p1,p2,p3,f)
+	pam.square= CalcSquare(p1,p2,p3)
+	pam.P4 = Create4Point(p1,p2,p3,f)
 	a,b := true, true
-	pam.center=FindCenter(p1,p2,&a,&b)
+	pam.Center = FindCenter(p1,p2,&a,&b)
 	return pam
 }
 
-func Create4Point(a,b,c Point, f *Field) Point{
+func Create4Point(a,b,c Point, f *Field) Point {
 	var d Point
 	inc:=true
 	inc2:=true
-	center:=FindCenter(a,b,&inc,&inc2)
+	center:= FindCenter(a,b,&inc,&inc2)
 	d.x=2*center.x - c.x
 	d.y=2*center.y - c.y
 
