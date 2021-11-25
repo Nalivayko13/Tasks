@@ -31,5 +31,16 @@ func TestCreateCircle(t *testing.T){
 
 }
 
+func TestCalcRadius(t *testing.T){
+	var O geom.Circle
+	O.Square=2.0
+	expected:=0.7978845608028654
+	O.CalcRadius(O.Square)
+	result:=O.Radius
+	if expected!=result{
+		t.Errorf("incorrect. Expected %v, got %v",expected,result)
+	}
+}
+
 
 
