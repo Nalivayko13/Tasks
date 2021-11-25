@@ -62,6 +62,6 @@ func ChangePoint(p1,p2,p3 Point,f *Field) {
 	fmt.Println("P-am center is", p.Center)
 	fmt.Println("P-am points: ", p.P1,p.P2,p.P3,p.P4)
 	o:= CreateCircle(p)
-	fmt.Println("Radius of circle = ",o.radius)
+	fmt.Println("Radius of circle = ",o.Radius)
 }
 

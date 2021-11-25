@@ -7,8 +7,8 @@ import (
 
 type Parallelogram struct {
 	P1, P2, P3, P4 Point
-	Center         Point
-	square         float64
+	Center Point
+	Square float64
 }
 
 func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram {
@@ -17,7 +17,7 @@ func CreateParallelogram(p1,p2,p3 Point, f *Field) Parallelogram {
 	pam.P1 =p1
 	pam.P2 =p2
 	f.SetThreePoints(p1,p2,p3)
-	pam.square= CalcSquare(p1,p2,p3)
+	pam.Square = CalcSquare(p1,p2,p3)
 	pam.P4 = Create4Point(p1,p2,p3,f)
 	a,b := true, true
 	pam.Center = FindCenter(p1,p2,&a,&b)
@@ -31,6 +31,7 @@ func Create4Point(a,b,c Point, f *Field) Point {
 	center:= FindCenter(a,b,&inc,&inc2)
 	d.X =2*center.X - c.X
 	d.Y =2*center.Y - c.Y
+	d.Color=Color((d.X+d.Y)/2)
 
 	if inc==false{
 		d.X +=1
@@ -51,6 +52,7 @@ func FindCenter(p1, p2 Point,Inc,Inc2 *bool) (Point){
 	var2= float64((p1.Y + p2.Y) )/ 2
 	center.X = (p1.X + p2.X) / 2
 	center.Y = (p1.Y + p2.Y) / 2
+	center.Color=Color((center.X+center.Y)/2)
 	if var1-float64(center.X)!=0 {
 		*Inc=false
 	}

@@ -6,28 +6,25 @@ import (
 )
 
 type Circle struct {
-	center Point
-	length float64
-	radius float64
-	square float64
+	Center Point
+	Length float64
+	Radius float64
+	Square float64
 	Color
 }
 
 func CreateCircle(p Parallelogram) Circle {
 	var c Circle
-	c.center=p.Center
-	c.square=p.square
-	c.CalcRadius(c.square)
-	//c.Color=Color()
+	c.Center =p.Center
+	c.Square =p.Square
+	c.CalcRadius(c.Square)
+	c.Color=Color((p.Center.Y+p.Center.X)/2)
 	return c
 }
 
-func (circ *Circle) SetCircleColor(c Color){
-	circ.Color= c
-}
 
 func (c *Circle) CalcRadius(s float64){
-	c.radius=math.Sqrt(s/math.Pi)
-	c.length=2*(math.Pi)*c.radius
-	fmt.Println("Radius = ",c.radius," length = ", c.length)
+	c.Radius =math.Sqrt(s/math.Pi)
+	c.Length =2*(math.Pi)*c.Radius
+	fmt.Println("Radius = ",c.Radius," length = ", c.Length)
 }
