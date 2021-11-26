@@ -60,7 +60,7 @@ func Create4Point(a,b,c Point, f *Field) Point {
 	return d
 }
 
-func FindCenter(p1, p2 Point,Inc,Inc2 *bool) (Point){
+func FindCenter(p1, p2 Point,Inc,Inc2 *bool) Point{
 	var center Point
 	*Inc=true
 	*Inc2=true

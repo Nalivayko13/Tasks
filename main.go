@@ -21,7 +21,7 @@ func main() {
 	fmt.Println("======================================")
 
 	p6:=geom.CreatePoint(4,0)
-	p7:=geom.CreatePoint(3,2)
+	p7:=geom.CreatePoint(3,3)
 	p8:=geom.CreatePoint(7,1)
 	geom.ChangePoint(p6,p7,p8,&field)
 	field.PrintField()
