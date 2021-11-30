@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/.idea/PointersTask2.iml" filepath="$PROJECT_DIR$/.idea/PointersTask2.iml" />
-=======
       <module fileurl="file://$PROJECT_DIR$/.idea/task1.iml" filepath="$PROJECT_DIR$/.idea/task1.iml" />
->>>>>>> task22
     </modules>
   </component>
 </project>
